@@ -26,8 +26,9 @@ describe LinkedList do
     expect(list.head.next_node).to eq(nil)
   end
 
-  xit 'can count the pieces of data in the linked list' do
+  it 'can count the pieces of data in the linked list' do
     list = LinkedList.new
+    list.append("doop")
     expect(list.count).to eq(1)
   end
 
