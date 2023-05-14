@@ -35,6 +35,30 @@ class LinkedList
       end
     end
 
+    # The prepend method works by creating a new node with the given data
+    # it then sets the head node to be the next node in the linked list
+    # the code does this by invoking the set_next_node function on the newly instantiated node
+    # the set_next_node method then takes the current (soon to be former) @head node
+    # and sets it to be the next node in the linked list
+    # the method then sets the newly instantiated node to be contained in the now empty head variable
+    # and this newly instantiated node contains the data passed in via the invoked prepend method
+
+    # Sub note to the above: I found a snippet of code online that used an if / else conditional
+    # that looks like this:   if @head
+    #                         new_node.set_next_node(@head)
+    #                         end
+    # I suspected that the reason was to determine if the list was empty, as that might 
+    # render issues with the code as I have it however, it did not render any issues because
+    # it will just create a nil node at the end of the list as @head = nil is a given value of the
+    # instantiated list. I suspected the system might complain that @head nil wasn't a valid argument
+    # I include this sub note for documentation purposes to my future self, in case the code I'm using
+    # breaks upon further testing and a conditional does in fact need to be used.
+    def prepend(data)
+      node = Node.new(data)
+      node.set_next_node(@head)
+      @head = node
+    end
+
     def to_string
       node = @head
       string = ""
