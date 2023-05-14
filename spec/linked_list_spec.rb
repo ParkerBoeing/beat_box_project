@@ -65,4 +65,38 @@ describe LinkedList do
     list.append("deep")
     expect(list.to_string).to eq("doop deep")
   end
+
+  it 'can prepend a node containing data' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    expect(list.head.data).to eq("dop")
+  end
+
+  it 'can count the correct number of nodes after using append and prepend methods' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    expect(list.count).to eq(3)
+  end
+
+  it 'can insert a node at a given index position' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    expect(list.head.next_node.data).to eq("woo")
+  end
+
+  it 'can turn the list of four instantiated nodes into a string' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    expect(list.to_string).to eq("dop woo plop suu")
+  end
 end
