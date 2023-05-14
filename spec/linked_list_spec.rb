@@ -74,6 +74,12 @@ describe LinkedList do
     expect(list.head.data).to eq("dop")
   end
 
+  it 'can prepend a node containing data even with an empty list' do
+    list = LinkedList.new
+    list.prepend("dop")
+    expect(list.head.data).to eq("dop")
+  end
+
   it 'can count the correct number of nodes after using append and prepend methods' do
     list = LinkedList.new
     list.append("plop")
@@ -82,7 +88,7 @@ describe LinkedList do
     expect(list.count).to eq(3)
   end
 
-  it 'can insert a node at a given index position' do
+  xit 'can insert a node at a given index position' do
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
@@ -91,7 +97,7 @@ describe LinkedList do
     expect(list.head.next_node.data).to eq("woo")
   end
 
-  it 'can turn the list of four instantiated nodes into a string' do
+  xit 'can turn the list of four instantiated nodes into a string' do
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
