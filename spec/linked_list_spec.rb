@@ -37,4 +37,32 @@ describe LinkedList do
     list.append("doop")
     expect(list.to_string).to eq("doop")
   end
+  
+  it 'can find tail' do
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    expect(list.find_tail.data).to eq("deep")
+  end
+
+  it 'can append multiple nodes' do
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    expect(list.count).to be > 1
+  end
+
+  it 'can count the number of nodes' do
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    expect(list.count).to eq(2)
+  end
+
+  it 'can turn the list to string' do
+    list = LinkedList.new
+    list.append("doop")
+    list.append("deep")
+    expect(list.to_string).to eq("doop deep")
+  end
 end
