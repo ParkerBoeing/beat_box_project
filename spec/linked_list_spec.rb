@@ -88,7 +88,7 @@ describe LinkedList do
     expect(list.count).to eq(3)
   end
 
-  xit 'can insert a node at a given index position' do
+  it 'can insert a node at a given index position' do
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
@@ -97,7 +97,18 @@ describe LinkedList do
     expect(list.head.next_node.data).to eq("woo")
   end
 
-  xit 'can turn the list of four instantiated nodes into a string' do
+  it 'can insert a node at a given index position in an empty list' do
+    list = LinkedList.new
+    list.insert(0, "woo")
+    expect(list.head.data).to eq("woo")
+  end
+
+  it 'provide feedback if index position doesnt exist' do
+    list = LinkedList.new
+    expect(list.insert(1, "woo")).to eq("Index position too high. Must insert node at index position <= 0")
+  end
+
+  it 'can turn the list of four instantiated nodes into a string' do
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
@@ -105,4 +116,54 @@ describe LinkedList do
     list.insert(1, "woo")
     expect(list.to_string).to eq("dop woo plop suu")
   end
+
+  it 'can check for empty list boolean' do
+    list = LinkedList.new
+    expect(list.is_empty?).to eq(true)
+  end
+
+  it 'can return false if theres a node in a list' do
+    list = LinkedList.new
+    list.append("plop")
+    expect(list.is_empty?).to eq(false)
+  end
+
+  it 'can return true when looking for a piece of data in the list' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    expect(list.includes?("plop")).to eq(true)
+  end
+
+  it 'can return false when the data is not included in the list' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    expect(list.includes?("zap")).to eq(false)
+  end
+
+  it 'can pop a node from the list' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    list.pop
+    expect(list.includes?("suu")).to eq(false)
+    expect(list.to_string).to eq("dop woo plop")
+  end
+
+  it 'can return the value of the popped node' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    expect(list.pop).to eq("suu")
+  end
+
 end
