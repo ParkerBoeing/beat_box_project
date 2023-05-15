@@ -13,9 +13,7 @@ class LinkedList
     # which would delineate the end of the list
     def find_tail
       current_node = @head
-      while current_node.next_node
-        current_node = current_node.next_node
-      end
+      current_node = current_node.next_node while current_node.next_node
       current_node
     end
 
@@ -28,10 +26,14 @@ class LinkedList
     # enacts a method from the node class, which allows us to set the data of the next node 
     # to to data taken from the given argument
     def append(data)
-      if @head
-        find_tail.set_next_node(Node.new(data))
-      else
-        @head = Node.new(data)
+      beats = data.split(" ")
+      beats.each do |beat|
+        new_node = Node.new(beat)
+        if @head
+        find_tail.set_next_node(new_node)
+        else
+        @head = new_node
+        end
       end
     end
 
