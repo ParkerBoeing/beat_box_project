@@ -32,4 +32,4 @@ attr_reader :list
     beats = list.to_string
     `say -r #{@rate} -v #{@voice} #{beats}`
   end
-endst
+end
