@@ -196,4 +196,17 @@ class LinkedList
       # returns data from removed node
       current_node.data
     end
+
+    def find(index, amount)
+      current_node = @head
+      result = " "
+      index_counter = 0
+
+        while index_counter < index + amount
+          result += "#{current_node.data} " if index_counter >= index
+          current_node = current_node.next_node
+          index_counter += 1
+        end
+      result.strip
+    end
   end
