@@ -166,4 +166,31 @@ describe LinkedList do
     expect(list.pop).to eq("suu")
   end
 
+  it 'has a find method' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    expect(list.find(2, 1)).to eq("plop")
+  end
+
+  it 'can find and return multiple nodes starting at a given index position' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    expect(list.find(1, 3)).to eq("woo plop suu")
+  end
+
+  it 'can find and return multiple nodes starting at a given index position - version 2' do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    expect(list.find(1, 2)).to eq("woo plop")
+  end
+
 end
