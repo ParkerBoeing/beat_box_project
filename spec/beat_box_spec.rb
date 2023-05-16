@@ -47,13 +47,6 @@ describe BeatBox do
     expect(bb.list.count).to eq(6)
   end
 
-  # it "play the sounds through the terminal using the play method" do
-  #   bb = BeatBox.new
-  #   bb.list.append("deep doo ditt")
-  #   bb.list.append("woo hoo shu")
-  #   expect(bb.play).to eq(system("say -r 500 -v Boing 'deep doo ditt woo hoo shu'"))
-  # end
-
   it "plays the sounds through the terminal using the play method" do
     bb = BeatBox.new
     bb.list.append("deep doo ditt")
