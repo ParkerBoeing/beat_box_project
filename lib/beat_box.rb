@@ -7,11 +7,6 @@ attr_reader :list
     @voice = "Boing"
   end
 
-  # def play
-  #   beats = list.to_string
-  #   system("say -r 500 -v Boing '#{beats}'")
-  # end
-
   def change_rate(rate)
     @rate = rate
   end
