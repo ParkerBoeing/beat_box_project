@@ -54,10 +54,44 @@ describe BeatBox do
   #   expect(bb.play).to eq(system("say -r 500 -v Boing 'deep doo ditt woo hoo shu'"))
   # end
 
-  it "play the sounds through the terminal using the play method" do
+  it "plays the sounds through the terminal using the play method" do
     bb = BeatBox.new
     bb.list.append("deep doo ditt")
     bb.list.append("woo hoo shu")
+    expect(bb.play).to eq(`say -r 500 -v Boing "deep doo ditt woo hoo shu"`)
+  end
+
+  it "has a change voice method" do
+    bb = BeatBox.new
+    bb.list.append("deep doo ditt")
+    bb.list.append("woo hoo shu")
+    bb.change_voice("Moira")
+    expect(bb.play).to eq(`say -r 500 -v Moira "deep doo ditt woo hoo shu"`)
+  end
+
+  it "has a reset voice method with Boing as the default" do
+    bb = BeatBox.new
+    bb.list.append("deep doo ditt")
+    bb.list.append("woo hoo shu")
+    bb.change_voice("Moira")
+    bb.reset_voice
+    expect(bb.play).to eq(`say -r 500 -v Boing "deep doo ditt woo hoo shu"`)
+  end
+
+  it "has a change rate method" do
+    bb = BeatBox.new
+    bb.list.append("deep doo ditt")
+    bb.list.append("woo hoo shu")
+    bb.change_rate(200)
+    expect(bb.play).to eq(`say -r 200 -v Boing "deep doo ditt woo hoo shu"`)
+  end
+
+  it "has a reset rate method with 500 as the default" do
+    bb = BeatBox.new
+    bb.list.append("deep doo ditt")
+    bb.list.append("woo hoo shu")
+    bb.change_rate(200)
+    bb.reset_rate
     expect(bb.play).to eq(`say -r 500 -v Boing "deep doo ditt woo hoo shu"`)
   end
 end
